@@ -17,24 +17,24 @@ console.log('lesson 3');
 // setTimeout(() => console.log(1), 0)
 // setTimeout(() => console.log(2), 0)
 //
-// const pr = new Promise((res, rej) => {
-//     console.log(2.1)
-//     // res()
-//     setTimeout(() => rej(), 1000)
-//     console.log(2.2)
-// })
-// console.log(pr)
-//
-// pr
-//     .then(() => {
-//         console.log('then')
-//         console.log(pr)
-//     })
-//     .catch(() => {
-//         console.log(pr)
-//         console.warn('it is not resolve')
-//     })
-//     .finally(() => console.log('finally'))
+const pr = new Promise((res, rej) => {
+    console.log(2.1)
+    // res()
+    setTimeout(() => rej(), 1000)
+    console.log(2.2)
+})
+console.log(pr)
+
+pr
+    .then(() => {
+        console.log('then')
+        console.log(pr)
+    })
+    .catch(() => {
+        console.log(pr)
+        console.warn('it is not resolve')
+    })
+    .finally(() => console.log('finally'))
 
 // console.log(3)
 

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {stringify} from 'querystring';
 
 const configOMB = {
     baseURL: 'http://www.omdbapi.com',
@@ -11,8 +10,8 @@ const API = {
     searchFilmsByTitle: (title: string) =>
         axiosInstance
             .get<getDataType>(`/?apikey=${key}&s=${title}`).then(res => res.data),
-    searchFilmsByType: (title: string, type: string) => {
-    }
+    searchFilmsByType: (title: string, type: string) =>
+        axiosInstance.get<getDataType>(`/?apikey=${key}&s=${title}&type=${type}`).then(res => res.data)
 };
 
 type getDataType = {

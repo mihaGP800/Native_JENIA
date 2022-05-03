@@ -18,11 +18,16 @@ const Lesson3 = () => {
 
     };
 
-    const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
-        API.searchFilmsByType(searchNameByType, type)
-    }
+    const searchByType = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        try {
+            const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
+            const {Response, Error, Search} = await API.searchFilmsByType(searchNameByType, type)
+            Response === 'True' ? setSerachResultByType(JSON.stringify(Search)) : setSerachResultByType(Error)
+        } catch (e) {
+            console.log('error', e)
 
+        }
+    }
     return (
         <div>
             <h1>Promises</h1>
@@ -41,6 +46,7 @@ const Lesson3 = () => {
                        onChange={(e) => setSearchNameByType(e.currentTarget.value)}/>
                 <button onClick={searchByType} data-t="movie">Movie</button>
                 <button onClick={searchByType} data-t="series">Series</button>
+                <button onClick={searchByType} data-t="episode">Episode</button>
                 <div>
                     {serachResultByType}
                 </div>
