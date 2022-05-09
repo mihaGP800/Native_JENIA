@@ -7,16 +7,15 @@ console.log('lesson 4');
 
 
 let pr = new Promise((res, rej) => {
-    setTimeout(()=>{
-        console.dir(pr)
-        res()
-    },2000)
+    setTimeout(() => {
+        res({a: 1, b: 2, message: 'HELLO'})
+        // rej('Error')
+    }, 2000)
 })
-console.dir(pr)
-
-
-
-
+//@ts-ignore
+pr.then(response => response.message)
+    .then(message => console.log(message))
+    .catch(err => console.error(err))
 
 
 // Task 01

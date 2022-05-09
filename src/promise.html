@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script>
+
+
+    // внутрь Promise передаем колбэк-функцию, которая собственно и есть та логика, которую промис обещает выполнить.
+    // let myPromise = new Promise((res, rej) => {
+    //     res()
+    //     alert('Hello');
+    // });
+
+
+    // ниже по коду мы можем подписаться, на промис, чтобы он (промис) вызвал нашу функцию, когда он (промис) зарезолвится. Для этого передаём в метод then колбэк-функцию)
+    // myPromise.then(() => {
+    //     console.log("myPromise зарезолвился, и я узнал об этом");
+    // })
+
+
+    const doAfter = (t) => new Promise((res, rej) => {
+        setTimeout(() => res(), t * 1000)
+    })
+
+    doAfter(5).then(() => console.log('я сработал через 5 секунд'));
+    doAfter(3).then(() => console.log('а я сработал через 3 секунд'));
+    doAfter(10).then(() => console.log('я сработал через 10 секунд'));
+
+
+</script>
