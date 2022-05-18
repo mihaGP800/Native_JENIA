@@ -6,16 +6,73 @@ console.log('lesson 4');
 // https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 
 
+// let pr = new Promise((res, rej) => {
+//     setTimeout(() => {
+//         res({a: 1, b: 2, message: 'HELLO'})
+//         // rej('Error')
+//     }, 2000)
+// })
+// //@ts-ignore
+// pr.then(response => response.message)
+//     .then(message => console.log(message))
+//     .catch(err => console.error(err))
+
+//---------------------------------------------------------
+
+// let pr = new Promise((res,rej) => {
+//     console.log(1)
+//     rej()
+// })
+// pr.then(res => console.log(2))
+//     .catch(res => console.log(3))
+//     .catch(res => console.log(4))//second catch won't need
+//     .then(res => console.log(5))
+//     .then(res => console.log(6))
+
+//----------------------------------------------------------
+
+// async function getPr(){
+//     return 5
+// }
+// let a = getPr()
+// console.log(a.then(res => console.log(res)))
+// console.log(a)
+
+//----------------------------------------------------------
+// async function yo() {
+//     return 'Yo-Yo-Yo'
+// }
+//
+// (async function () {
+//     let result = await yo()    //syntax sugar for then
+//     console.log(result)
+// })()
+
+//----------------------------------------------------------
+
 let pr = new Promise((res, rej) => {
-    setTimeout(() => {
-        res({a: 1, b: 2, message: 'HELLO'})
-        // rej('Error')
-    }, 2000)
-})
-//@ts-ignore
-pr.then(response => response.message)
-    .then(message => console.log(message))
-    .catch(err => console.error(err))
+        rej('Miha')
+    })
+
+// (async function () {
+//         let result = await pr
+//         console.log(result)
+// }())
+
+;(async function () {
+    try {
+        let result = await pr
+        console.log(result)
+    } catch (e) {
+        console.log(e)
+    }
+}())
+
+
+// duplicate example with then
+// (function () {
+//     yo().then(res => console.log(res))
+// })()
 
 
 // Task 01

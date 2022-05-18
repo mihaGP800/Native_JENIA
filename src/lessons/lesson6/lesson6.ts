@@ -131,42 +131,42 @@ console.log('Lesson 6');
 // Создать массив из десяти элементов такого типа, упорядочить записи по возрастанию среднего балла.
 // Добавить возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 4 или 5.
 
-interface StudentInterface {
-    firstName: string
-    lastName: string
-    group: number
-    progress?: number
-}
-
-class Student implements StudentInterface {
-    public arr = []
-    constructor(public firstName: string, public lastName: string, public group: number, public progress?: number) {
-    }
-
-    getArrData() {
-        this.firstName = String(Math.ceil(Math.random() * 1000))
-        this.lastName = String(Math.ceil(Math.random() * 100000))
-        this.progress = Math.ceil(Math.random() * 5)
-        return [this.firstName, this.lastName, this.group, this.progress]
-    }
-
-    allInArray(n:number = 10){
-        let array: any[] = []
-        for (let i = 0; i <= n; i++) {
-            array = [...array, this.getArrData()]
-        }
-        return array.sort((a,b) => a[3] -b[3])
-    }
-
-    getBestStudents(){
-        let result = this.allInArray().filter(s => s[3] > 3).map((s, i) => `${i + 1}) firstName ${s[0]} lastName ${s[1]}`)
-        return `BEST STUDENTS ${result}`
-    }
-}
-
-let st1 = new Student('1', '11', 1, )
-console.log(st1.allInArray(10))
-console.log(st1.getBestStudents())
+// interface StudentInterface {
+//     firstName: string
+//     lastName: string
+//     group: number
+//     progress?: number
+// }
+//
+// class Student implements StudentInterface {
+//     public arr = []
+//     constructor(public firstName: string, public lastName: string, public group: number, public progress?: number) {
+//     }
+//
+//     getArrData() {
+//         this.firstName = String(Math.ceil(Math.random() * 1000))
+//         this.lastName = String(Math.ceil(Math.random() * 100000))
+//         this.progress = Math.ceil(Math.random() * 5)
+//         return [this.firstName, this.lastName, this.group, this.progress]
+//     }
+//
+//     allInArray(n:number = 10){
+//         let array: any[] = []
+//         for (let i = 0; i <= n; i++) {
+//             array = [...array, this.getArrData()]
+//         }
+//         return array.sort((a,b) => a[3] -b[3])
+//     }
+//
+//     getBestStudents(){
+//         let result = this.allInArray().filter(s => s[3] > 3).map((s, i) => `${i + 1}) firstName ${s[0]} lastName ${s[1]}`)
+//         return `BEST STUDENTS ${result}`
+//     }
+// }
+//
+// let st1 = new Student('1', '11', 1, )
+// console.log(st1.allInArray(10))
+// console.log(st1.getBestStudents())
 
 
 // Task 02

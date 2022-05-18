@@ -13,6 +13,48 @@ console.log('Lesson 7');
 // https://www.youtube.com/watch?v=aQkgUUmUJy4&t=21s
 // https://www.youtube.com/watch?v=b55hiUlhAzI
 
+// const baseUser = {
+//     showName(){
+//         console.log(this.name)
+//     }
+// }
+//
+// const user1 = {
+//     name: 'Miha'
+// }
+//
+// const user2 = {
+//     name: 'Alina'
+// }
+//
+// user1.__proto__ = baseUser
+// user2.__proto__ = baseUser
+//
+// user1.showName()
+// user2.showName()
+// console.log(user1)
+
+
+// class User {
+//     showName(){
+//         console.log(this.name)
+//     }
+//
+//     get name(){
+//         return this._name
+//     }
+//     set name(value){
+//         this._name = value
+//     }
+//
+// }
+
+function User(){
+
+}
+
+console.dir(User)
+
 
 //Task 01
 // Реализовать класс Animal который принимает name(по умолчанию 'Animal') в качестве параметра, у которого будет 3
